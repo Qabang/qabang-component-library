@@ -1,5 +1,5 @@
 {
-  "name": "qabangcomponentlibrary",
+  "name": "@qabang/qabang-component-library",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -23,6 +23,9 @@
       "npm run lint",
       "npm run test"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [],
   "author": "",
