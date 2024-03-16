@@ -29,5 +29,10 @@
     "exclude": [
         "src/**/__docs__",
         "src/**/__test__"
-    ]
+    ],
+    "types": [
+        "node",
+        "jest",
+        "@testing-library/jest-dom"
+    ],
 }

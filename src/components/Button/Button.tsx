@@ -60,7 +60,7 @@ function setWidth(children: ReactNode) {
     let css_value = "fit-content";
     const arrayChildren = Children.toArray(children);
 
-    if (arrayChildren.length == 1) {
+    if (arrayChildren.length == 1 && arrayChildren[0] !== "Button") {
         css_value = "40px";
     } else if (arrayChildren.length == 2 && arrayChildren[1] === "") {
         css_value = "40px";
@@ -79,6 +79,7 @@ const StyledButton = styled.button<ButtonProps>`
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: ${(props) =>
         props.icon_position === "right" ? "row-reverse" : "row"};
     gap: 8px;
@@ -111,6 +112,12 @@ const StyledButton = styled.button<ButtonProps>`
         );
         outline: 2px solid ${GetColor("CTA")};
     }
+    &:disabled {
+        background-color: #d2d9db;
+        color: #6a6d6e;
+        border: 0 solid transparent;
+        box-shadow: unset;
+    }
 `;
 
 const Button: React.FC<ButtonProps> = ({
@@ -128,7 +135,7 @@ const Button: React.FC<ButtonProps> = ({
                 type="button"
                 onClick={onClick}
                 button_type={button_type ?? ButtonType.Primary}
-                disabled={disabled ?? false}
+                disabled={disabled ? true : false}
                 icon={icon}
                 icon_position={icon_position}
                 {...props}
