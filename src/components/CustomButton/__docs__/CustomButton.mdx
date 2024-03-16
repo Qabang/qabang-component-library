@@ -1,0 +1,45 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import Example from "./Example.tsx";
+import * as Button from "./CustomButton.stories.tsx";
+
+<Meta of={Button} title="Button" />
+
+# Button
+
+Button component with different props.
+
+#### Example
+
+<Canvas of={Button.TextAndIconLeft} />
+
+## Usage
+
+```ts
+import {Button} from "qabang-component-library";
+
+const Example = () => {
+  return (
+      <Button
+        text: "text and icon",
+        color: "#613587",
+        text_color: "#ffffff",
+        disabled: false,
+        icon: { icon: "rocket" },
+        icon_position: "right",
+        onClick: () => console.log("Button"),
+      />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+- **text** - _string_ - Represents the text content of the button.
+- **color** - string - Sets the background color of the button.
+- **text_color** - string - Sets the text color of the button.
+- **disabled** - _boolean_ - indicating whether the button should be disabled or not. When disabled, the button cannot be clicked or interacted with.
+- **icon** - _MaterialSymbolProps_ - A MaterialSymbol icon.
+- **icon_position** - _string "left | right"_ -  Positions the icon to the left or right side of the button text.
+- **onClick** - _Callback_ - A function that is called when the button is clicked. It receives a MouseEventHandler for handling the click event on the button element.
