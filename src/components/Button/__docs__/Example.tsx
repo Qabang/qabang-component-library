@@ -1,12 +1,13 @@
 import React, { FC } from "react";
-import Button, { ButtonProps } from "../Button";
+import Button, { ButtonProps, ButtonType as btnType } from "../Button";
 
 const Example: FC<ButtonProps> = ({
     disabled = false,
     onClick = () => {},
-    primary = true,
-    size = "small",
-    text = "Button",
+    button_type = btnType.CTA,
+    icon = undefined,
+    text = "Button-Example",
+    icon_position = "left",
 }) => {
     return (
         <div
@@ -18,11 +19,12 @@ const Example: FC<ButtonProps> = ({
             }}
         >
             <Button
-                size={size}
+                icon={icon}
+                icon_position={icon_position}
                 text={text}
                 disabled={disabled}
                 onClick={onClick}
-                primary={primary}
+                button_type={button_type}
             />
         </div>
     );
