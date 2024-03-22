@@ -2,6 +2,7 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { peerDependencies } from "./package.json";
+import { configDefaults } from "vitest/config";
 
 export default defineConfig({
     build: {
@@ -18,6 +19,14 @@ export default defineConfig({
         emptyOutDir: true, // Clears the output directory before building.
     },
     test: {
+        include: ["src/**/*.test.tsx", "!src/tests"],
+        exclude: [
+            ...configDefaults.exclude,
+            "./src/assets/fonts/**",
+            "/src/assets/fonts/fonts.tsx",
+            "**/assets/**",
+            "**/fonts/**",
+        ],
         globals: true,
         environment: "jsdom",
         setupFiles: "./setupTests.ts",
