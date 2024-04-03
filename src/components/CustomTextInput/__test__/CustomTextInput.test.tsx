@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import CustomTextInput from "../CustomTextInput";
 import { MaterialSymbolProps } from "react-material-symbols";
+
 const originalConsoleError = console.error;
 const jsDomCssError = "Error: Could not parse CSS stylesheet";
 console.error = (...params) => {
@@ -10,6 +11,7 @@ console.error = (...params) => {
         originalConsoleError(...params);
     }
 };
+
 describe("CustomTextInput component", () => {
     it("CustomTextInput should render correctly", () => {
         /// Assign
