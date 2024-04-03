@@ -1,0 +1,51 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as TextInput from "./CustomTextInput.stories.tsx";
+
+<Meta of={TextInput} title="CustomTextInput" />
+
+# TextInput
+
+TextInput component with different props.
+
+#### Example
+
+<Canvas of={TextInput.WithIcon} />
+
+## Usage
+
+```ts
+import {CustomTextInput} from "qabang-component-library";
+
+const Example = () => {
+  return (
+      <CustomTextInput
+        color: "",
+        disabled: false,
+        hide_label: false,
+        icon: { icon: "rocket" },
+        label: "This is the label",
+        placeholder_text: "input placeholder text",
+        readonly: false,
+        required: false,
+        show_validation: false,
+        type: "text",
+        value: "Hello world",
+      />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+    - **color** - _string_ - a string with the hex value of the color.
+    - **disabled** - _boolean_ - controls the disabled attribute of the input.
+    - **hide_label** - _boolean_ - if true it will visually hide the label.
+    - **icon** - _MaterialSymbolProps_ - A MaterialSymbol icon.
+    - **label** - _string_ - Sets the label for the input,
+    - **onChange** - _EventCallback_ - A function that is called when the input is changed. It receives a ChangeEventHandler for handling the change event on the input element.
+    - **readonly** - _boolean_ - Sets the input field to be readonly.
+    - **required** - _boolean_ -Sets the input field to be required.
+    - **show_validation** - _boolean_ - Shows validation elements such as message and valid/invalid indicator,
+    - **type** - _string_ - Sets the type of the textfield accepts "text" and "password".
+    - **value** - _string_ - Sets the value of the input.
