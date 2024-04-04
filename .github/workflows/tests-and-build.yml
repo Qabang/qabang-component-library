@@ -1,4 +1,4 @@
-name: publish on github
+name: Tests
 
 on:
    pull_request:
