@@ -24,9 +24,6 @@
     "*.{ts,tsx}": [
       "npm run format",
       "npm run lint"
-    ],
-    "./src/components/**/*.{ts,tsx}": [
-      "npm run test"
     ]
   },
   "publishConfig": {
