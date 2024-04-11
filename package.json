@@ -23,7 +23,9 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run format",
-      "npm run lint",
+      "npm run lint"
+    ],
+    "./src/components/**/*.{ts,tsx}": [
       "npm run test"
     ]
   },
@@ -70,6 +72,7 @@
     "vitest": "^1.4.0"
   },
   "dependencies": {
-    "react-material-symbols": "^4.4.0"
+    "react-material-symbols": "^4.4.0",
+    "uuid": "^9.0.1"
   }
 }
