@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
 import styled from "styled-components";
 import { GetColor } from "../../assets/Colors";
 import { MaterialSymbol, MaterialSymbolProps } from "react-material-symbols";
@@ -167,14 +167,18 @@ const TextInput: React.FC<TextInputProps> = ({
     const [error, setError] = useState("");
     id = uuidv4();
 
-    function handleChange(val: string) {
+    function handleChange(e: ChangeEvent<HTMLInputElement>) {
         setError("");
 
-        if (show_validation && required && !val) {
+        if (show_validation && required && !e.target.value) {
             setError("Required");
         }
 
-        setCurrentValue(val);
+        if (onChange !== undefined) {
+            onChange(e);
+        }
+
+        setCurrentValue(e.target.value);
     }
 
     return (
@@ -204,7 +208,7 @@ const TextInput: React.FC<TextInputProps> = ({
                     color={color ?? `#${GetColor(InputType.Secondary)}`}
                     disabled={disabled ? true : false}
                     icon={icon}
-                    onChange={onChange ?? ((e) => handleChange(e.target.value))}
+                    onChange={(e) => handleChange(e)}
                     show_validation={show_validation}
                     readonly={readonly ?? false}
                     label={label}
