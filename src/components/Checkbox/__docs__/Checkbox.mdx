@@ -1,0 +1,41 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Checkbox from "./Checkbox.stories.tsx";
+
+<Meta of={Checkbox} title="Checkbox" />
+
+# Checkbox
+
+Checkbox component with different props.
+
+#### Example
+
+<Canvas of={Checkbox.Regular} />
+
+## Usage
+
+```ts
+import {Checkbox} from "qabang-component-library";
+
+const Example = () => {
+  return (
+      <Checkbox
+        disabled: false,
+        title: "This i the tile of the checkbox",
+        description: "This is the description",
+        primary_color: "#000",
+        secondary_color: "#000",
+      />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+    - **primary_color** - _string_ - a string with the hex value of the color.
+    - **secondary_color** - _string_ - a string with the hex value of the color.
+    - **disabled** - _boolean_ - controls the disabled attribute of the checkbox.
+    - **checked** - _boolean_ - if true it will check the checkbox.
+    - **title** - _string_ - Sets the title for the checkbox,
+    - **description** - _string_ - Sets the description for the checkbox,
+   
