@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { GetColor } from "../../assets/Colors";
 import { TextBody, TextCaption } from "../../assets/fonts/fonts";
 
-interface CheckboxProps {
+export interface CheckboxProps {
     primary_color?: `#${string}` | "";
     secondary_color?: `#${string}` | "";
     title: string;
@@ -42,6 +42,7 @@ const StyledCheckbox = styled.div<{
     $secondary_color: string;
 }>`
   display: inline-block;
+  min-width: 20px;
   width: 20px;
   height: 20px;
   border: 2px solid #fff;
@@ -70,17 +71,35 @@ const CheckboxContainer = styled.label`
     display: flex;
     align-content: center;
     font: ${TextBody};
+    min-height: 42px;
+    box-sizing: border-box;
+    max-width: 100%;
 `;
 
 const StyledSpan = styled.span<{ color: string }>`
     font: ${TextCaption};
     color: ${(props) => props.color};
     margin-top: -2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
+
+const StyledCheckboxTitle = styled.span`
+    font: ${TextBody};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 const StyledTextContainer = styled.span<{ disabled?: boolean }>`
     display: flex;
     flex-direction: column;
+    margin: auto 0;
+    max-width: 100%;
+    width: 100%;
+    flex: 1;
+    min-width: 100px;
 
     ${(props) =>
         props.disabled &&
@@ -109,7 +128,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
     return (
         <>
-            <CheckboxContainer className={`checkbox-wrapper`}>
+            <CheckboxContainer
+                className={`checkbox-wrapper`}
+                data-testid="checkbox-label"
+            >
                 <HiddenCheckbox
                     className="hidden"
                     disabled={disabled}
@@ -141,7 +163,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                     </Icon>
                 </StyledCheckbox>
                 <StyledTextContainer disabled={disabled}>
-                    {title}
+                    <StyledCheckboxTitle>{title}</StyledCheckboxTitle>
 
                     <StyledSpan
                         color={

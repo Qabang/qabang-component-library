@@ -65,7 +65,7 @@ describe("Checkbox component", () => {
         );
 
         /// Act
-        const label = screen.getByText("Title example");
+        const label = screen.getByTestId("checkbox-label");
 
         /// Assert
         expect(label.innerHTML).toContain(expected);
