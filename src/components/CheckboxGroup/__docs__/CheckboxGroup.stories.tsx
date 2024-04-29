@@ -37,7 +37,6 @@ const listOfCheckboxes = [
 
 export const Regular: Story = {
     args: {
-        // children: <Checkbox key="6" title="Example 6" description="This is a checkbox" checked={false}></Checkbox>
         children: listOfCheckboxes,
     },
 };
