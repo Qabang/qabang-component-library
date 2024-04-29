@@ -1,0 +1,57 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as CheckboxGroup from "./CheckboxGroup.stories.tsx";
+
+<Meta of={CheckboxGroup} title="CheckboxGroup" />
+
+# CheckboxGroup
+
+CheckboxGroup component with different props.
+
+#### Example
+
+<Canvas of={CheckboxGroup.Regular} />
+
+## Usage
+
+```ts
+import {CheckboxGroup} from "qabang-component-library";
+
+const Example = () => {
+  return (
+      <CheckboxGroup
+        className: "hello-world"
+      >
+          <Checkbox
+              key="1"
+              title="Example 1 - With an uneccessary long title text to demsonstrate the trunctation of the text"
+              description="This is a checkbox with a irrelevant and boring description just to fill the space and show that we trunctate text that are to long"
+              checked={false}/>
+
+          <Checkbox key="2" title="Example 2" checked={false}/>
+
+          <Checkbox key="3" title="Example 3" checked={false}/>
+
+          <Checkbox key="4" title="Example 4" checked={false}/>
+
+          <Checkbox
+              key="5"
+              title="Example 5"
+              description="This is a checkbox"
+              checked={false} />
+          
+          <Checkbox
+              key="6"
+              title="Example 6"
+              description="This is a checkbox"
+              checked={false} />
+      </CheckboxGroup>
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+    - **children** - _JSX.Element[]_ - a list of JSX.Element.
+    - **className** - _string_ - a string, sets the css class for the element.
+   
